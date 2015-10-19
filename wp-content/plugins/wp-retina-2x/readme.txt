@@ -4,8 +4,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: retina, images, image, admin, attachment, media, files, iphone, ipad, plugin, picture, pictures
 License: GPLv2 or later
 Requires at least: 3.5
-Tested up to: 4.2.2
-Stable tag: 3.4.4
+Tested up to: 4.3.1
+Stable tag: 3.5.4
 
 Make your website look beautiful and crisp on Retina / High DPI displays.
 
@@ -27,11 +27,28 @@ Languages: English, French.
 
 == Changelog ==
 
+= 3.5.4 =
+* Update: PictureFill 3.0.1 (full codebase rewrite).
+
+= 3.5.2 =
+* Update: Little modification for SmushIt (https://wordpress.org/support/topic/wp-retina-2x-support-in-wp-smush?replies=1#post-7460268).
+
+= 3.5.0 =
+* Update: Towards using the new WP translation system.
+
+= 3.4.8 =
+* Update: For WordPress 4.3.
+* Update: RetinaImages to 1.7.2.
+* Info: If you like the plugin, please tell me so here: https://wordpress.org/support/view/plugin-reviews/wp-retina-2x :) Thank you, and have a nice week-end everyone!
+
+= 3.4.6 =
+* Fix: Search string not null but empty induces error.
+* Change: User Agent used for Pro authentification.
+
 = 3.4.4 =
 * Fix: Issues with class containing trailing spaces. Fixed in in SimpleHTMLDOM.
 * Fix: Used to show weird numbers when using 9999 as width or height.
 * Add: Filter and default filter to avoid certain IMG SRC to be checked/parsed by the plugin while rendering.
-* Info: If you use Lightroom & WP, please have a look at http://apps.meow.fr/wplr-sync/ :)
 
 = 3.4.2 =
 * Fix: Full-Size Retina wasn't removed when the original file was deleted from WP.
