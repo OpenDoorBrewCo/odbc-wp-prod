@@ -1,0 +1,69 @@
+/*
+ * Metabox css for google maps pro 
+ */
+
+ div.wpgmp_metabox_container div.row_metabox {
+    width: 100%;
+    float: left;
+    margin: 6px 0;
+}
+
+div#wpgmp_google_map_metabox {
+    width: 100%;
+    float: left;
+    float: left;
+    width: 100%;
+}
+
+div.wpgmp_metabox_container {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+}
+
+div#wpgmp_google_map_metabox h3 {
+    color: #000000;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+div#wpgmp_google_map_metabox div.wpgmp_metabox_container div.row_metabox input, div#wpgmp_google_map_metabox div.wpgmp_metabox_container div.row_metabox select {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 0px;
+    color: #555555;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.625;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+div#wpgmp_google_map_metabox div.wpgmp_metabox_container div.row_metabox select {  
+    height: 38px;
+    min-height: 38px;
+}
+
+div.wpgmp_metabox_container div.wpgmp_metabox_left {
+    width: 25%;
+    float: left;
+}
+
+div.wpgmp_metabox_container div.wpgmp_metabox_right {
+    width: 75%;
+    float: left;
+}
+
+div.wpgmp_metabox_container div.row_metabox input.wpgmp_metabox_location {
+    width: 95%;
+}
+
+div.wpgmp_metabox_container div.row_metabox input.wpgmp_metabox_latitude, div.wpgmp_metabox_container div.row_metabox input.wpgmp_metabox_longitude {
+    margin-right: 15px;
+    width: 46%;
+}
+
+div.wpgmp_metabox_container div.row_metabox select {
+    width: 95%;
+}
