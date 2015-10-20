@@ -41,4 +41,11 @@ ehthumbs.db
 
 #------------------------
 #  Duplicator .zip files are too large to track with git (.100 mb)
+#------------------------
 /wp-snapshots/
+
+#------------------------
+# .htaccess file needs to be different in local and server environments and therefore should not be tracked
+#------------------------
+.htaccess
+.htaccess.orig
