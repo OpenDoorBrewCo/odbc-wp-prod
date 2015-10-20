@@ -38,3 +38,7 @@ access_log
 ehthumbs.db
 *[Tt]humbs.db
 *.Trashes
+
+#------------------------
+#  Duplicator .zip files are too large to track with git (.100 mb)
+/wp-snapshots/
