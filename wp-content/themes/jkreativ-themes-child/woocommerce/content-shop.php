@@ -60,7 +60,7 @@ if(vp_option('joption.product_use_margin', 0) == 1) {
 		
 	</div>	
 </div>
-<div class="productloader bigloader"></div>
+<!--div class="productloader bigloader"></div>*/-->
 <style>
 	<?php if(vp_option('joption.override_overlay')) { ?>
 	.productitem .pmask {
