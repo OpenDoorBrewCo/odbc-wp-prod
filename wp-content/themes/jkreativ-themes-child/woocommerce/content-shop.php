@@ -7,9 +7,12 @@ if(vp_option('joption.product_use_margin', 0) == 1) {
 	$marginadditional = $marginsize + 2;
 }
 ?>
+
 <div class="productwrapper">
 	<div class="contentheaderspace"></div>
 	<div class="product-content-wrapper" style="padding : <?php echo ( $marginadditional ) ?>px;">
+		<h1 class="shop-title">Shop</h1>
+		<!--- TODO: make title dynamic -->
 		<div class="isotopewrapper <?php if(vp_option('joption.override_overlay') && vp_option("joption.product_overlay_text_switch")) { echo "switchproducttext"; } ?>">
 			<?php
 				if(have_posts()) {
@@ -37,6 +40,8 @@ if(vp_option('joption.product_use_margin', 0) == 1) {
 					while(have_posts()) {
 						the_post();
 						woocommerce_get_template_part( 'content', 'product' );
+						// $woocontent = strval(woocommerce_get_template_part( 'content', 'product' ));
+						// echo "<script type='text/javascript'>alert('$woocontent');</script>";
 					}
 				} else {
 					woocommerce_get_template( 'loop/no-products-found.php' );
