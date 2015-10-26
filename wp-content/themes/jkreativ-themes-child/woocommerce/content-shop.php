@@ -1,86 +1,101 @@
 <?php
-// margin
-$marginsize = 0;
-$marginadditional = 0;
-if(vp_option('joption.product_use_margin', 0) == 1) {
-	$marginsize = vp_option('joption.product_margin_size', 5);
-	$marginadditional = $marginsize + 2;
-}
-?>
+/**
+ * The Template for displaying product archives, including the main shop page which is a post type archive.
+ *
+ * Override this template by copying it to yourtheme/woocommerce/archive-product.php
+ *
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     2.0.0
+ */
 
-<div class="productwrapper">
-	<div class="contentheaderspace"></div>
-	<div class="product-content-wrapper" style="padding : <?php echo ( $marginadditional ) ?>px;">
-		<h1 class="shop-title">Shop</h1>
-		<!--- TODO: make title dynamic -->
-		<div class="isotopewrapper <?php if(vp_option('joption.override_overlay') && vp_option("joption.product_overlay_text_switch")) { echo "switchproducttext"; } ?>">
-			<?php
-				if(have_posts()) {
-					
-					global $wp_query;
-					
-					$title = '';
-					if(isset($wp_query->query_vars['taxonomy']) && $wp_query->query_vars['taxonomy'] === 'product_cat') {
-						$title =  sprintf( __('Product Category : <b>%s</b>', 'jeg_textdomain') , single_cat_title('', false) ); 
-					} else if(isset($wp_query->query_vars['taxonomy']) && $wp_query->query_vars['taxonomy'] === 'product_tag') {
-						$title =  sprintf( __('Product Tag : <b>%s</b>', 'jeg_textdomain') , single_tag_title('', false) ); 
-					} 
-					
-					if($title !== '') {
-						echo 
-						"<a href='#' class='productitem productcategorywrapout' data-width='1'>
-							<div class='productcontent productcategorywrap' style='margin: {$marginsize}px'>
-								<div class='article-head-wrapper'>
-									<span>{$title}</span>									
-								</div>
-							</div>												
-						</a>";											
-					}
-					
-					while(have_posts()) {
-						the_post();
-						woocommerce_get_template_part( 'content', 'product' );
-						// $woocontent = strval(woocommerce_get_template_part( 'content', 'product' ));
-						// echo "<script type='text/javascript'>alert('$woocontent');</script>";
-					}
-				} else {
-					woocommerce_get_template( 'loop/no-products-found.php' );
-				}
-			?>
-		</div>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+get_header( 'shop' ); ?>
+
+	<?php
+		/**
+		 * woocommerce_before_main_content hook
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
+
+		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+
+			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
+
+		<?php endif; ?>
+
 		<?php
-			global $wp_query;
-			$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-			
-			if($wp_query->max_num_pages > 1) {
-				echo 
-				"<div class='blogpagingholder'>
-					<div class='blogpagingwrapper'>
-					" . jeg_new_pagination(get_the_ID(), $paged, $wp_query->max_num_pages) . "
-					</div>
-				</div>";
-			}
-			wp_reset_postdata();
-		?>		
-		
-	</div>	
-</div>
-<!--div class="productloader bigloader"></div>*/-->
-<style>
-	<?php if(vp_option('joption.override_overlay')) { ?>
-	.productitem .pmask {
-		background : <?php echo vp_option('joption.product_overlay_color'); ?> 
-	}
-	<?php } ?>
-</style>
-<script>
-	(function($){
-		$(document).ready(function(){
-			$(".productwrapper").jproduct({
-				loadAnimation : 'randomfade',
-				portfoliosize : <?php echo vp_option('joption.product_width', 500) ?>,
-				tiletype : 'masonry'
-			});
-		});		
-	})(jQuery);
-</script>
+			/**
+			 * woocommerce_archive_description hook
+			 *
+			 * @hooked woocommerce_taxonomy_archive_description - 10
+			 * @hooked woocommerce_product_archive_description - 10
+			 */
+			do_action( 'woocommerce_archive_description' );
+		?>
+
+		<?php if ( have_posts() ) : ?>
+
+			<?php
+				/**
+				 * woocommerce_before_shop_loop hook
+				 *
+				 * @hooked woocommerce_result_count - 20
+				 * @hooked woocommerce_catalog_ordering - 30
+				 */
+				do_action( 'woocommerce_before_shop_loop' );
+			?>
+
+			<?php woocommerce_product_loop_start(); ?>
+
+				<?php woocommerce_product_subcategories(); ?>
+
+				<?php while ( have_posts() ) : the_post(); ?>
+
+					<?php wc_get_template_part( 'content', 'product' ); ?>
+
+				<?php endwhile; // end of the loop. ?>
+
+			<?php woocommerce_product_loop_end(); ?>
+
+			<?php
+				/**
+				 * woocommerce_after_shop_loop hook
+				 *
+				 * @hooked woocommerce_pagination - 10
+				 */
+				do_action( 'woocommerce_after_shop_loop' );
+			?>
+
+		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+
+			<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+
+		<?php endif; ?>
+
+	<?php
+		/**
+		 * woocommerce_after_main_content hook
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
+
+	<?php
+		/**
+		 * woocommerce_sidebar hook
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
+
+<?php get_footer( 'shop' ); ?>
