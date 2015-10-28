@@ -50,14 +50,48 @@ a.button.add_to_cart_button.product_type_simple {
     margin: 10px;
 }
 
-li.product{
+/* li.product{
 
     margin-bottom: 50px;
     border-bottom: solid 1px gray;
-    /* padding: 50px; */
+
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding: 25px;
+} */
+
+
+div#content {
+    width: 80%;
+	display:block;
+    background-color: white;
+	margin-left:auto;
+	margin-right:auto;
 }
+
+.woocommerce .products ul, .woocommerce ul.products{
+    text-align: center;
+
 }
+
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    float: none;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+}
+
+woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
+    margin-left: 11%;
+}
+
+.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering {
+    margin-right:15%;
+}
+
+.content{
+	background-image:none !important;
+}
+
