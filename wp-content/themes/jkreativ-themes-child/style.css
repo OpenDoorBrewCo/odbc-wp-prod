@@ -13,7 +13,7 @@
 */
 
 
-/*Shop Page*/
+/*Shop Page (content-shop.php)*/
 
 .product-content-wrapper{
 	width:60%;
@@ -43,11 +43,11 @@ img.attachment-shop_catalog.wp-post-image,img.woocommerce-placeholder.wp-post-im
 	font-family: 'KG Next to Me Solid';
 }
 
-a.button.add_to_cart_button.product_type_simple {
+a.button.add_to_cart_button.product_type_simple, button.single_add_to_cart_button.button.alt  {
     font-family: 'KG Next to Me Solid';
     border: solid 1px;
     color: black;
-    margin: 10px;
+	background-color:rgba(0,0,0,0);
 }
 
 /* li.product{
@@ -62,7 +62,7 @@ a.button.add_to_cart_button.product_type_simple {
 } */
 
 
-div#content {
+div#content, .product-content {
     width: 80%;
 	display:block;
     background-color: white;
@@ -74,7 +74,6 @@ div#content {
     text-align: center;
 
 }
-
 
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
     float: none;
@@ -95,3 +94,46 @@ woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-cou
 	background-image:none !important;
 }
 
+/* Product Page (content-single-product.php) */
+
+.product-content{
+	padding-top:100px;
+	font-family: 'KG Next to Me Solid';
+}
+
+img.attachment-shop_single.wp-post-image{
+	margin:25px;
+}
+
+.sharrre {
+	font-family: songbird;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel{
+	margin:2em;
+}
+
+#comments>h2 {
+    font-family: 'KG Next to me solid';
+}
+
+h3#reply-title {
+    padding-bottom: 15px;
+}
+
+input#submit {
+    border: solid 1px black !important;
+}
+
+/* Top Shopping Navigation */
+.topnavigationwoo {
+	font-family: 'kg next to me solid';
+}
+
+.topaccount > a > img{
+	width: 25px !important;
+}
+
+.toplink .topcart > a:before, .topnavigationwoo .topcart > a:before{
+	font-size:25px !important;
+}
