@@ -134,6 +134,6 @@ input#submit {
 	width: 25px !important;
 }
 
-.toplink .topcart > a:before, .topnavigationwoo .topcart > a:before{
+.toplink .topcart > a:before, .topnavigationwoo .topcart > a:before, .toplink .topcart > a:before, .topnavigationwoo .toplogin > a:before{
 	font-size:25px !important;
 }
